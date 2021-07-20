@@ -43,10 +43,8 @@ def getPost():
                 # #     checkedComment = currentComment.replace(swearWord, swear_json['base']['replacement_words'][i2])
                 # #     i2 += 1
                 # # checkedAccount = comment.author.replace("fuck", "f*ck")
-                commentList.append(comment)
+                commentList.append(comment.body)
                 authorList.append(comment.author)
-                print(checkedComment)
-                print()
                 i += 1
                 if i == reddit_details['max_comments']:
                     return commentList, authorList
