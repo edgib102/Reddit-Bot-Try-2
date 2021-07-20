@@ -9,7 +9,7 @@ with open('swear_words.json') as x:
     swear_json = json.load(x)
 
 #getting json file and opening it
-with open('requirements1.json') as f:
+with open('requirements.json') as f:
     data = json.load(f)
 
 #authentication
@@ -34,25 +34,27 @@ def getPost():
         for comment in submission.comments:
             try:
                 # for word in swear_json['base']['swear_words']:
-                currentComment = "nigger"#str(comment.body)
+                # currentComment = "nigger"#str(comment.body)
 
-                big_regex = re.compile('|'.join(map(re.escape, swear_json['base']['swear_words'])))
-                checkedComment = big_regex.sub("repl-string", currentComment)
+                # big_regex = re.compile('|'.join(map(re.escape, swear_json['base']['swear_words'])))
+                # checkedComment = big_regex.sub("repl-string", currentComment)
 
-                # for swearWord in swear_json['base']['swear_words']:
-                #     checkedComment = currentComment.replace(swearWord, swear_json['base']['replacement_words'][i2])
-                #     i2 += 1
-                # checkedAccount = comment.author.replace("fuck", "f*ck")
-                commentList.append(checkedComment)
-                # authorList.append(comment.author)
+                # # for swearWord in swear_json['base']['swear_words']:
+                # #     checkedComment = currentComment.replace(swearWord, swear_json['base']['replacement_words'][i2])
+                # #     i2 += 1
+                # # checkedAccount = comment.author.replace("fuck", "f*ck")
+                commentList.append(comment)
+                authorList.append(comment.author)
                 print(checkedComment)
                 print()
                 i += 1
                 if i == reddit_details['max_comments']:
-                    break
+                    return commentList, authorList
             except AttributeError:
                 print(AttributeError)
-                break
+                return commentList, authorList
+
+    return commentList, authorList
 
 getPost()
 print("Finished scalping reddit")
