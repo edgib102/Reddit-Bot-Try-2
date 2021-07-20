@@ -31,6 +31,7 @@ def getPost():
     for submission in sub.hot(limit=(reddit_details["post_limit"])):
         i=0
         i2 = 0
+        title = submission.name
         for comment in submission.comments:
             try:
                 # for word in swear_json['base']['swear_words']:
@@ -47,12 +48,14 @@ def getPost():
                 authorList.append(comment.author)
                 i += 1
                 if i == reddit_details['max_comments']:
-                    return commentList, authorList
+                    amount = len(commentList)
+                    return title, commentList, authorList, amount
             except AttributeError:
                 print(AttributeError)
                 return commentList, authorList
-
-    return commentList, authorList
-
-getPost()
+    amount = len(commentList)
+    return title, commentList, authorList, amount
+if __name__ == '__main__':
+    getPost()
+    print('cim')
 print("Finished scalping reddit")

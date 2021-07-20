@@ -1,7 +1,11 @@
 from Scrape import getPost
+from Image import construct_image
 
-commentList, authorlist = getPost()
+title, commentList, authorlist, amount= getPost()
+print(title)
+for x in range(amount):
+    print(commentList[x])
 
-for comment in commentList:
-    print(comment+ '/n/n')
+
+
 
