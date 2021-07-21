@@ -38,7 +38,7 @@ def get_text_size(text_string, font):
     text_height = font.getmask(text_string).getbbox()[3] + descent
     return (text_width, text_height)
         
-def construct_image(text,author,name):
+def construct_image(text,author,title,name):
     #gets filepath where the image ends up and the name of the image
     filepath = os.path.join(IMAGE_PATH, name)
     #creates a blank transparent image
@@ -49,7 +49,7 @@ def construct_image(text,author,name):
     commentFont = ImageFont.truetype(font, fontsize)
     authorFont = ImageFont.truetype(font, 30)
     #draws text onto the blank image we created earlier
-
+    d.text((100,50),author,font=commentFont,fill='red')
     y = 150
     for line in split_string(text, 10):
         text_dimensions = get_text_size(line, commentFont) #gets text size
@@ -65,7 +65,7 @@ def construct_image(text,author,name):
     return()
 
 if __name__ == '__main__':
-    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
+    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test title','test.png')
 
 
 

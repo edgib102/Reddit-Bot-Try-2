@@ -7,6 +7,7 @@ def create_tts(text, name): #Gets text and name from run.py and creates a .mp4 f
     filepath = os.path.join(baseFilepath, name)
     engine.save_to_file(text,filepath)
     engine.runAndWait()
+    print("created text file")
 
 if __name__ == '__main__':
     create_tts('This is a test .mp3 file. I am using multiplllle kinds of spech LMAO lol f*ck','test.mp3')

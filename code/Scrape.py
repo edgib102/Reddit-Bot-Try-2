@@ -31,13 +31,12 @@ def getPost():
 
     for submission in sub.hot(limit=(reddit_details["post_limit"])): #Gets submission/s from the set subreddit and loops per number of them
         i=0
-        i2 = 0
         title = submission.title
 
         for comment in submission.comments: #loops x amount of comments from the submission
             try:
                 commentList.append(comment.body)
-                authorList.append(comment.author)
+                authorList.append(comment.author.name)
                 i += 1
 
                 if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
