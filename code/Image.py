@@ -64,6 +64,7 @@ def construct_image(text,author,name):
     #saves the image ot the set filepath
     # try:
     img.save(filepath)
+    print('made image')
     # except OSError:
     #     print(f'file {name} allready in place',)
     return()

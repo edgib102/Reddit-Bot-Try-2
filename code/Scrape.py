@@ -9,7 +9,7 @@ with open('swear_words.json') as x:
     swear_json = json.load(x)
 
 #getting json file and opening it
-with open('requirements.json') as f:
+with open('settings.json') as f:
     data = json.load(f)
 
 #authentication
