@@ -28,32 +28,28 @@ def getPost():
     i=0
     reddit_details = data["reddit_details"]
     sub = reddit.subreddit(reddit_details["subreddit"])
-    for submission in sub.hot(limit=(reddit_details["post_limit"])):
+
+    for submission in sub.hot(limit=(reddit_details["post_limit"])): #Gets submission/s from the set subreddit and loops per number of them
         i=0
         i2 = 0
         title = submission.title
-        for comment in submission.comments:
+
+        for comment in submission.comments: #loops x amount of comments from the submission
             try:
-                # for word in swear_json['base']['swear_words']:
-                # currentComment = "nigger"#str(comment.body)
-
-                # big_regex = re.compile('|'.join(map(re.escape, swear_json['base']['swear_words'])))
-                # checkedComment = big_regex.sub("repl-string", currentComment)
-
-                # # for swearWord in swear_json['base']['swear_words']:
-                # #     checkedComment = currentComment.replace(swearWord, swear_json['base']['replacement_words'][i2])
-                # #     i2 += 1
-                # # checkedAccount = comment.author.replace("fuck", "f*ck")
                 commentList.append(comment.body)
                 authorList.append(comment.author)
                 i += 1
-                if i == reddit_details['max_comments']:
+
+                if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
                     amount = len(commentList)
                     return title, commentList, authorList, amount
-            except AttributeError:
+
+            except AttributeError: #for if it hits the comment limit
                 print(AttributeError)
                 return commentList, authorList
+
     amount = len(commentList)
     return title, commentList, authorList, amount
+
 if __name__ == '__main__':
     getPost()

@@ -17,7 +17,7 @@ def split_string(text, maxWords):
     line = ''
     lines = []
 
-    for word in words:
+    for word in words: #splits string into lines so they dont go off the screen.
         added = False
         wc += 1
         line += word + ' '
@@ -49,25 +49,21 @@ def construct_image(text,author,name):
     commentFont = ImageFont.truetype(font, fontsize)
     authorFont = ImageFont.truetype(font, 30)
     #draws text onto the blank image we created earlier
-    # d.text((20,50), author, fill=colorText, font=authorFont)
-    # d.text((100,200), text, fill=colorText, font=commentFont)
-
 
     y = 150
     for line in split_string(text, 10):
-        text_dimensions = get_text_size(line, commentFont)
-        x = (1920 - text_dimensions[0]) / 2
+        text_dimensions = get_text_size(line, commentFont) #gets text size
+        x = (1920 - text_dimensions[0]) / 2 #gets the center of the screen to place text to
 
-        d.text((x, y),line,font=commentFont,fill=colorText)
+        d.text((x, y),line,font=commentFont,fill=colorText) #draws text
         y += 50
 
-    #saves the image ot the set filepath
-    # try:
+    #saves the image at the set filepath
     img.save(filepath)
     print('made image')
-    # except OSError:
-    #     print(f'file {name} allready in place',)
+
     return()
+
 if __name__ == '__main__':
     construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
 
