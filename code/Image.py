@@ -5,7 +5,7 @@ import os.path
 
 #base text settings. Might change it into a json file if i can be fucked
 FONT_PATH =''
-IMAGE_PATH='Image Bin'
+IMAGE_PATH='video\\Image Bin'
 font = "arial.ttf"
 # fontname = "Lato-Regular.ttf"
 fontsize = 55
@@ -62,13 +62,13 @@ def construct_image(text,author,name):
         y += 50
 
     #saves the image ot the set filepath
-    try:
-        img.save(filepath)
-    except OSError:
-        print(f'file {name} allready in place')
+    # try:
+    img.save(filepath)
+    # except OSError:
+    #     print(f'file {name} allready in place',)
     return()
-
-construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
+if __name__ == '__main__':
+    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
 
 
 

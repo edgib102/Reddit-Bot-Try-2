@@ -31,7 +31,7 @@ def getPost():
     for submission in sub.hot(limit=(reddit_details["post_limit"])):
         i=0
         i2 = 0
-        title = submission.name
+        title = submission.title
         for comment in submission.comments:
             try:
                 # for word in swear_json['base']['swear_words']:
@@ -57,5 +57,3 @@ def getPost():
     return title, commentList, authorList, amount
 if __name__ == '__main__':
     getPost()
-    print('cim')
-print("Finished scalping reddit")
