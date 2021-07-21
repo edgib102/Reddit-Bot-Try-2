@@ -5,7 +5,7 @@ import os.path
 
 #base text settings. Might change it into a json file if i can be fucked
 FONT_PATH =''
-IMAGE_PATH='video\\Image Bin'
+IMAGE_PATH='Video\\Image Bin'
 font = "arial.ttf"
 # fontname = "Lato-Regular.ttf"
 fontsize = 55
