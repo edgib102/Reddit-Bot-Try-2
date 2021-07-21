@@ -5,15 +5,22 @@ from Edit import create_clip
 
 
 print('started')
-
+commentNames = []
+ttsNames = []
 title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
 
 print(title)
 for x in range(amount):
-    construct_image(commentList[x],authorlist[x],title,f'test{x}.png') #tells Image.py to make an image with set comment and author (x is what comment to send)
-    create_tts(commentList[x],f'testA{x}.mp3') #tells tts.py to make an mp3 based off the comment set
+    commentName = f'Image{x}.png'
+    ttsName = f'TtsAudio{x}.mp3'
+    construct_image(commentList[x],authorlist[x],title,commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+    create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
-create_clip(amount)
+    commentNames.append(commentName)
+    ttsNames.append(ttsName)
+
+
+create_clip(amount,ttsNames,commentNames)
 
 
 
