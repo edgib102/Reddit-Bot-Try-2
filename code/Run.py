@@ -17,8 +17,8 @@ print('created base title media')
 for x in range(amount):
     commentName = f'Image{x}.png'
     ttsName = f'TtsAudio{x}.mp3'
-    construct_image(commentList[x],authorlist[x],title,commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
-    create_tts(commentList[x],ttsName,title) #tells tts.py to make an mp3 based off the comment set
+    construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+    create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
     commentNames.append(commentName)
     ttsNames.append(ttsName)
