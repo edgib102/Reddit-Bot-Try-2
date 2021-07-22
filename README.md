@@ -6,10 +6,10 @@
 2. Converts each comment into a transparent image 
 3. Turns text in tts audio
 4. Combines the 2 into one big clip
-5. adds background stuff like music
+5. Adds background stuff like music and a title
+6. Uploads to youtube
  
 ## Future wants:
 
 - List of terms and categories to filter out to improve comment quality
 - auto thumbnail creation
-- auto youtube posting
