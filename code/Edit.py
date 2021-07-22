@@ -9,14 +9,14 @@ TTS_PATH = 'Video\\Tts\\'
 OUTPUT_PATH = 'Video\\Output\\'
 EFFECT_PATH = 'Video\\Effects\\'
 
+width = 1920/4
+height = 1080/4
 
-def create_clip(amount,audioNames,imageNames, title):
+def create_clip(amount,audioNames,imageNames):
     clips = []
-    width = 1920/4
-    height = 1080/4
-    
+        
     titleaudioClip = AudioFileClip(TTS_PATH + 'TitleTtsAudio.mp3') #creates a one time title clip
-    titleClip = ImageClip(IMAGE_PATH + 'TitleImage.png').set_duration(titleaudioClip.duration + 1)
+    titleClip = ImageClip(IMAGE_PATH + 'TitleImage.png').set_duration(titleaudioClip.duration + 1.5)
     tmp_mp4 = concatenate([titleClip], method='compose')
     tmp_mp3 = CompositeAudioClip([titleaudioClip])
 
@@ -25,7 +25,7 @@ def create_clip(amount,audioNames,imageNames, title):
 
     for x in range(amount):
         audioClip = AudioFileClip(TTS_PATH + audioNames[x])
-        commentClip = ImageClip(IMAGE_PATH + imageNames[x]).set_duration(audioClip.duration + 0.5) #creates base clips
+        commentClip = ImageClip(IMAGE_PATH + imageNames[x]).set_duration(audioClip.duration + 1) #creates base clips
         tmp_mp4 = concatenate([commentClip], method='compose') #converts to files
         tmp_mp3 = CompositeAudioClip([audioClip])
 

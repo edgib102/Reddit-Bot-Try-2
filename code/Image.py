@@ -4,13 +4,16 @@ from PIL import ImageDraw
 import os.path
 
 #base text settings. Might change it into a json file if i can be fucked
-FONT_PATH =''
+FONT_PATH ='Fonts\\'
 IMAGE_PATH='Video\\Image Bin'
-font = "arial.ttf"
-# fontname = "Lato-Regular.ttf"
+font = os.path.join(FONT_PATH,"Roboto-Bold.ttf")
+titleFont = os.path.join(FONT_PATH,"Roboto-Bold.ttf")
+
 fontsize = 55
+authorfontsize = 70
 titleFontSize = 100
 colorText = "white"
+authorcolorText = "white"
 
 def split_string(text, maxWords):
     words = text.split()
@@ -22,7 +25,7 @@ def split_string(text, maxWords):
         added = False
         wc += 1
         line += word + ' '
-        if (wc % maxWords ==0 ):
+        if (wc % maxWords == 0 ):
             lines.append(line)
             line = ''
             added = True
@@ -48,9 +51,9 @@ def construct_image(text,author,name):
     d = ImageDraw.Draw(img)
     #sets fonts and font sizes
     commentFont = ImageFont.truetype(font, fontsize)
-    authorFont = ImageFont.truetype(font, 30)
+    authorFont = ImageFont.truetype(font, authorfontsize)
     #draws text onto the blank image we created earlier
-    d.text((100,50),author,font=authorFont,fill='red') #Draws author text
+    d.text((100,50),'u/'+author,font=authorFont,fill=authorcolorText) #Draws author text
     y = 250
 
     for line in split_string(text, 10):
@@ -58,7 +61,7 @@ def construct_image(text,author,name):
         x = (1920 - text_dimensions[0]) / 2 #gets the center of the screen to place text to
 
         d.text((x, y),line,font=commentFont,fill=colorText) #draws text
-        y += fontsize-5
+        y += fontsize
 
     #saves the image at the set filepath
     img.save(filepath)
@@ -78,7 +81,7 @@ def construct_title_image(text,name): #esentaly does the same thing as above exe
         x = (1920 - text_dimensions[0]) / 2
 
         d.text((x, y),line,font=commentFont,fill=colorText)
-        y += titleFontSize-5
+        y += titleFontSize+10
 
     #saves the image at the set filepath
     img.save(filepath)

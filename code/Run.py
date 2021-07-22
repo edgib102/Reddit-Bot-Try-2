@@ -24,7 +24,7 @@ for x in range(amount):
     ttsNames.append(ttsName)
 
 
-create_clip(amount,ttsNames,commentNames,title)
+create_clip(amount,ttsNames,commentNames)
 
 
 
