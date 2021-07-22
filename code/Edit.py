@@ -10,10 +10,11 @@ OUTPUT_PATH = 'Video\\Output\\'
 EFFECT_PATH = 'Video\\Effects\\'
 
 
-def create_clip(amount,audioName,imageName):
+def create_clip(amount,audioName,imageName, title):
     clips = []
     width = 1920/4
     height = 1080/4
+    
     for x in range(amount):
         audioClip = AudioFileClip(TTS_PATH + audioName[x])
         commentClip = ImageClip(IMAGE_PATH + imageName[x]).set_duration(audioClip.duration + 0.5) #creates base clips
@@ -37,6 +38,7 @@ def create_clip(amount,audioName,imageName):
     final_vid = CompositeVideoClip([BackgroundClip,stacked_vid])
     final_vid = final_vid.resize(width=width,height=height)
     final_vid.write_videofile(os.path.join(OUTPUT_PATH,'siming.mp4'),fps=10)
+
 
 if __name__ == '__main__':
     create_clip(1)

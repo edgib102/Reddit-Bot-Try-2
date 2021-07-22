@@ -66,23 +66,18 @@ def construct_image(text,author,name):
 
     return()
         
-def construct_title_image(text,name):
-    #gets filepath where the image ends up and the name of the image
+def construct_title_image(text,name): #esentaly does the same thing as above exept with diff settings
     filepath = os.path.join(IMAGE_PATH, name)
-    #creates a blank transparent image
     img = Image.new('RGBA',(1920,1080), (0,0,0,0))
-    #opens up the image for editing
     d = ImageDraw.Draw(img)
-    #sets fonts and font sizes
     commentFont = ImageFont.truetype(font, titleFontSize)
-    #draws text onto the blank image we created earlier
     y = 250
 
     for line in split_string(text, 5):
-        text_dimensions = get_text_size(line, commentFont) #gets text size
-        x = (1920 - text_dimensions[0]) / 2 #gets the center of the screen to place text to
+        text_dimensions = get_text_size(line, commentFont)
+        x = (1920 - text_dimensions[0]) / 2
 
-        d.text((x, y),line,font=commentFont,fill=colorText) #draws text
+        d.text((x, y),line,font=commentFont,fill=colorText)
         y += titleFontSize-5
 
     #saves the image at the set filepath
@@ -90,24 +85,7 @@ def construct_title_image(text,name):
     print('made image')
 
     return()
-# def construct_title_image(title,name): #essentaly does the same thign as above exept just once
-
-#     filepath = os.path.join(IMAGE_PATH,name)
-#     img = Image.new('RGBA',(1920,1080), (0,0,0,0))
-#     d = ImageDraw.Draw(img)
-#     titleFont = ImageFont.truetype(font, titleFontSize)
-
-#     y = 250
-
-#     for line in split_string(title,2):
-#         text_dimensions = get_text_size(line, titleFont)
-#         x = (1920 - text_dimensions[0]) / 2
-#         d.text((x-700,y),title,font=titleFont,fill='white')
-#         y += titleFontSize-5
-    
-#     img.save(filepath)
-#     print('Made title image')
 
 if __name__ == '__main__':
-    # construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
+    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
     construct_title_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor','TitleTest.png')
