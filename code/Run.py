@@ -2,7 +2,9 @@ from Scrape import getPost
 from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
 from Edit import create_clip
+from Upload import create_video
 
+videoName = 'Reddit Tts video.mp4'
 
 print('started')
 commentNames = []
@@ -23,8 +25,11 @@ for x in range(amount):
     commentNames.append(commentName)
     ttsNames.append(ttsName)
 
+create_clip(amount,ttsNames,commentNames,videoName)
 
-create_clip(amount,ttsNames,commentNames)
+create_video(videoName,'TitleImage.png','test video title')
+
+print('finished cycle')
 
 
 
