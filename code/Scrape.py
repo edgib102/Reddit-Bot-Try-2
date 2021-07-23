@@ -1,3 +1,4 @@
+from logging import exception
 from os import close, replace
 import praw
 import json
@@ -36,6 +37,7 @@ def getPost():
     with open('prev_submissions.json', 'r') as x:
         postList = json.load(x)
         print(postList)
+        x.close()
 
     i=0
     reddit_details = data["reddit_details"]
@@ -47,7 +49,7 @@ def getPost():
         print(submission)
 
         if any(word in str(submission) for word in postList):
-            print('post allredy done')
+            print('post allready done')
             continue
 
         postList.append(str(submission))
@@ -55,21 +57,26 @@ def getPost():
         #     turn_to_json(postList)
         
         for comment in submission.comments: #loops x amount of comments from the submission
-            try:
-                commentList.append(comment.body)
-                authorList.append(comment.author.name)
-                i += 1
+            # try:
+            if comment.author is None:
+                print('removed')
+                continue
+            commentList.append(comment.body)
+            authorList.append(comment.author.name)
+            i += 1
 
-                if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
-                    amount = len(commentList)
-                    turn_to_json(postList)
-                    return title, commentList, authorList, amount
+            if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
+                amount = len(commentList)
+                turn_to_json(postList)
+                return title, commentList, authorList, amount
 
-            except AttributeError: #for if it hits the comment limit
-                print(AttributeError)
-                return commentList, authorList
+            # except:
+            #     print( + 'limit occured (take with grain of salt)')
+            #     turn_to_json(postList)
+            #     return title, commentList, authorList, amount
 
     amount = len(commentList)
+    turn_to_json(postList)
     return title, commentList, authorList, amount
 
 if __name__ == '__main__':

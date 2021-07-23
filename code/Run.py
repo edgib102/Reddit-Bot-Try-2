@@ -3,6 +3,7 @@ from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
 from Edit import create_clip
 from Upload import create_video
+import time
 
 videoName = 'Reddit Tts video.mp4'
 
@@ -10,28 +11,37 @@ print('started')
 commentNames = []
 ttsNames = []
 
-title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
+def full():
 
-print(title)
-create_tts_title(title,'TitleTtsAudio.mp3')
-construct_title_image(title,'TitleImage.png')
-print('created base title media')
+    title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
 
-for x in range(amount):
-    commentName = f'Image{x}.png'
-    ttsName = f'TtsAudio{x}.mp3'
-    construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
-    create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
+    print(title)
+    create_tts_title(title,'TitleTtsAudio.mp3')
+    construct_title_image(title,'TitleImage.png')
+    print('created base title media')
 
-    commentNames.append(commentName)
-    ttsNames.append(ttsName)
+    for x in range(amount):
+        commentName = f'Image{x}.png'
+        ttsName = f'TtsAudio{x}.mp3'
+        construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+        create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
-create_clip(amount,ttsNames,commentNames,videoName)
+        commentNames.append(commentName)
+        ttsNames.append(ttsName)
 
-create_video(videoName,'TitleImage.png','test video title')
+    create_clip(amount,ttsNames,commentNames,videoName)
 
-print('finished cycle')
+    create_video(videoName,'TitleImage.png',title)
 
+    print('finished cycle at ' + time.ctime())
 
+i = 0
+while True:
+    if i >= 10:
+        break
+    print('cycle' + str(i))
+    i += 1
 
+    full()
+    time.sleep(2)
 
