@@ -35,6 +35,7 @@ def getPost():
     authorList = []
 
     with open('prev_submissions.json', 'r') as x:
+        global postList
         postList = json.load(x)
         print(postList)
         x.close()
@@ -79,5 +80,18 @@ def getPost():
     turn_to_json(postList)
     return title, commentList, authorList, amount
 
+def reset_blacklist():
+    postList = []
+
+    jsonFile = open('prev_submissions.json', 'w')
+    jsonString = json.dumps(postList)
+    jsonFile.write(jsonString)
+    jsonFile.close()
+    
+
+
+
+
 if __name__ == '__main__':
-    getPost()
+    # getPost()
+    reset_blacklist()

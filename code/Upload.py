@@ -1,5 +1,8 @@
 import datetime
+from logging import exception
 from wsgiref.simple_server import server_version
+
+import googleapiclient
 from Google import Create_Service
 from googleapiclient.http import MediaFileUpload
 import os.path
@@ -17,7 +20,7 @@ def create_video(videoFileName,thumbnailName,videoTitle):
         'snippet':{
             'categoryId':24, #possible error
             'title': videoTitle,
-            'description': 'Test description for reddit bot',
+            'description': f'{videoTitle}\n\nThis is the first pulbic video test',
             'tags': ['reddit','askreddit']
         },
         'status':{
@@ -31,11 +34,14 @@ def create_video(videoFileName,thumbnailName,videoTitle):
 
     mediaFile = MediaFileUpload('Video\\Output\\'+ videoFileName)
 
+
     response_upload = service.videos().insert(
         part='snippet,status',
         body=request_body,
         media_body=mediaFile
     ).execute()
+
+    print('ran into an error')
 
     service.thumbnails().set(
         videoId=response_upload.get('id'),

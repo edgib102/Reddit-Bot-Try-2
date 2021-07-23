@@ -1,4 +1,4 @@
-from Scrape import getPost
+from Scrape import getPost, reset_blacklist
 from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
 from Edit import create_clip
@@ -36,6 +36,8 @@ def full():
     print('finished cycle at ' + time.ctime())
 
 i = 0
+time = 3000
+maxtime = 0
 while True:
     if i >= 10:
         break
@@ -43,5 +45,11 @@ while True:
     i += 1
 
     full()
-    time.sleep(2)
+    time.sleep(time)
+    maxtime += time
+    if maxtime == 259200: #if 3 days worth of seconds have passed reset blacklist
+        maxtime = 0
+        reset_blacklist()
+
+
 
