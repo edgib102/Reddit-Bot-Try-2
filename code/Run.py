@@ -9,6 +9,7 @@ videoName = 'Reddit Tts video.mp4'
 print('started')
 commentNames = []
 ttsNames = []
+
 title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
 
 print(title)

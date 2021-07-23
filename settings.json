@@ -8,7 +8,6 @@
     "reddit_details":
     {
         "subreddit":"askreddit",
-        "post_limit":1,
         "max_comments": 5
     }
 

@@ -22,17 +22,38 @@ reddit = praw.Reddit(
 
 print(reddit.read_only) #check to see if auth is working
 
+def turn_to_json(submissions):
+    jsonFile = open('prev_submissions.json', 'w')
+    jsonString = json.dumps(submissions)
+    jsonFile.write(jsonString)
+    jsonFile.close()
+
+
 def getPost():
     commentList = []
     authorList = []
+
+    with open('prev_submissions.json', 'r') as x:
+        postList = json.load(x)
+        print(postList)
+
     i=0
     reddit_details = data["reddit_details"]
     sub = reddit.subreddit(reddit_details["subreddit"])
 
-    for submission in sub.hot(limit=(reddit_details["post_limit"])): #Gets submission/s from the set subreddit and loops per number of them
+    for submission in sub.hot(limit=None): #Gets submission/s from the set subreddit and loops per number of them
         i=0
         title = submission.title
+        print(submission)
 
+        if any(word in str(submission) for word in postList):
+            print('post allredy done')
+            continue
+
+        postList.append(str(submission))
+        # if len(postList) >= 10:
+        #     turn_to_json(postList)
+        
         for comment in submission.comments: #loops x amount of comments from the submission
             try:
                 commentList.append(comment.body)
@@ -41,6 +62,7 @@ def getPost():
 
                 if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
                     amount = len(commentList)
+                    turn_to_json(postList)
                     return title, commentList, authorList, amount
 
             except AttributeError: #for if it hits the comment limit
