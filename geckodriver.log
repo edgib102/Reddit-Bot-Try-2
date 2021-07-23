@@ -1,0 +1,385 @@
+1627042274451	geckodriver	INFO	Listening on 127.0.0.1:53126
+1627042277899	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilefS8cFe"
+1627042295916	geckodriver	INFO	Listening on 127.0.0.1:53170
+1627042299327	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilen5eHhU"
+1627042299593	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilen5eHhU\\search.json.mozlz4", (void 0)))
+1627042301195	Marionette	INFO	Listening on port 53178
+1627042301394	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 10896, MediaDecoderStateMachine #1] WARNING: 1c151971900 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:367
+[Child 10896, MediaDecoderStateMachine #2] WARNING: 1c15476d040 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:367
+[Child 10896, MediaDecoderStateMachine #3] WARNING: 1c15476d900 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:367
+JavaScript error: https://www.theverge.com/2021/7/22/22587264/google-doodle-olympics-champion-island-games-japan line 338 > injectedScript, line 1: ReferenceError: Sailthru is not defined
+JavaScript error: https://phonograph2.voxmedia.com/pickup.js?v=1529075019264, line 21: TypeError: ga.getAll()[0] is undefined
+JavaScript error: https://s0.2mdn.net/8057936/1626668056697/IAG2067-Tally-Tech-300x600/index.html, line 269: TypeError: studio.Enabler is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1627042637918	Marionette	INFO	Stopped listening on port 53178
+1627043014888	geckodriver	INFO	Listening on 127.0.0.1:53890
+1627043018303	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileQNhdNe"
+1627043018566	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileQNhdNe\\search.json.mozlz4", (void 0)))
+1627043020338	Marionette	INFO	Listening on port 53898
+1627043020369	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 14264, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:544
+1627043122278	Marionette	INFO	Stopped listening on port 53898
+7043097536	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileeWEGEJ"
+1627043097806	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileeWEGEJ\\search.json.mozlz4", (void 0)))
+1627043099553	Marionette	INFO	Listening on port 54002
+1627043099589	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627043124704	Marionette	INFO	Stopped listening on port 54002
+7043122224	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilePslhVc"
+1627043122516	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilePslhVc\\search.json.mozlz4", (void 0)))
+1627043124196	Marionette	INFO	Listening on port 54094
+1627043124306	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/actors/AutoCompleteChild.jsm, line 125: Error: Invalid autocomplete selectedIndex
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1627043950653	Marionette	INFO	Stopped listening on port 54094
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile01FTE5"
+1627043929412	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile01FTE5\\search.json.mozlz4", (void 0)))
+1627043931192	Marionette	INFO	Listening on port 54327
+1627043931218	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627043971838	Marionette	INFO	Stopped listening on port 54327
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627043976076	geckodriver	INFO	Listening on 127.0.0.1:54401
+1627043979453	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilebKQPEO"
+1627043979719	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilebKQPEO\\search.json.mozlz4", (void 0)))
+1627043981433	Marionette	INFO	Listening on port 54410
+1627043981509	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627043992568	Marionette	INFO	Stopped listening on port 54410
+1627044046611	geckodriver	INFO	Listening on 127.0.0.1:54478
+1627044050026	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofiletVfkOf"
+1627044050296	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofiletVfkOf\\search.json.mozlz4", (void 0)))
+1627044052042	Marionette	INFO	Listening on port 54489
+1627044052095	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: staconsole.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: IJavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new TypeError("currentNode is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 66))
+TypeError: currentNode is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:66:20
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+1627045220803	Marionette	INFO	Stopped listening on port 54489
+
+###!!! [Child][RunMessage] Error: Chan1627045221724	Marionette	INFO	Stopped listening on port 54592
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+x\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileA78ygx"
+1627044608349	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileA78ygx\\search.json.mozlz4", (void 0)))
+1627044610057	Marionette	INFO	Listening on port 54833
+1627044610162	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1627045222667	Marionette	INFO	Stopped listening on port 54833
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileQuf4Gc"
+1627044780434	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileQuf4Gc\\search.json.mozlz4", (void 0)))
+1627044782149	Marionette	INFO	Listening on port 55049
+1627044782241	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+1627045223517	Marionette	INFO	Stopped listening on port 55049
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+1627045224581	Marionette	INFO	Stopped listening on po1627045225548	Marionette	INFO	Stopped listening on port 55240
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileUyX8zk"
+1627044911711	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileUyX8zk\\search.json.mozlz4", (void 0)))
+1627044913489	Marionette	INFO	Listening on port 55312
+1627044913517	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627045226461	Marionette	INFO	Stopped listening on port 55312
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileOMNzno"
+1627044920864	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileOMNzno\\search.json.mozlz4", (void 0)))
+1627044922595	Marionette	INFO	Listening on port 55385
+1627044922654	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627045227528	Marionette	INFO	Stopped listening on port 55385
+7045013830	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile1FMlFD"
+1627045014113	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile1FMlFD\\search.json.mozlz4", (void 0)))
+1627045015885	Marionette	INFO	Listening on port 55495
+1627045015994	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627045228667	Marionette	INFO	Stopped listening on port 55495
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627045472403	geckodriver	INFO	Listening on 127.0.0.1:55834
+1627045475809	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilefADwhZ"
+1627045476072	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilefADwhZ\\search.json.mozlz4", (void 0)))
+1627045477836	Marionette	INFO	Listening on port 55842
+1627045477866	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+console.error: (new TypeError("parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.error: (new TypeError("parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:84:41
+_emit@resource://devtools/shared/event-emitter.js:226:34
+emit@resource://devtools/shared/event-emitter.js:172:18
+emit@resource://devtools/shared/event-emitter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.error: (new TypeError("parent is null", "resource://devtools/client/inspector/shared/style-change-tracker.js", 67))
+TypeError: parent is null: canMutationImpactCurrentStyles@resource://devtools/client/inspector/shared/style-change-tracker.js:67:24
+onMutations@resource://devtools/client/inspector/shared/style-change-tracker.js:1627052041424	Marionette	INFO	Stopped listening on port 56056
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ter.js:324:18
+getMutations@resource://devtools/client/fronts/walker.js:311:10
+
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.child4/domwalker24, type cancelPick failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ncancelPick@resource://devtools/client/fronts/walker.js:499:18\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:57:25\n_onInspectorFrontDestroyed@resource://devtools/client/inspector/node-picker.js:113:18\nstop@resource://devtools/client/inspector/node-picker.js:176:18\n_destroyToolbox@resource://devtools/client/framework/toolbox.js:3731:24\ndestroy@resource://devtools/client/framework/toolbox.js:3669:10\n_forgetBrowserWindow@resource://devtools/client/framework/devtools-browser.js:700:17\nhandleEvent@resource://devtools/client/framework/devtools-browser.js:721:26\n", "resource://devtools/shared/protocol/Front.js", 103))
+1627052040523	Marionette	INFO	Stopped listening on port 55842
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ommand: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileA5YoVW"
+1627046349967	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileA5YoVW\\search.json.mozlz4", (void 0)))
+1627046351781	Marionette	INFO	Listening on port 56534
+1627046351842	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627046378409	Marionette	INFO	Stopped listening on port 56534
+7046376638	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileBzGXXr"
+1627046376928	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileBzGXXr\\search.json.mozlz4", (void 0)))
+1627046378667	Marionette	INFO	Listening on port 56608
+1627046378694	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1627052042129	Marionette	INFO	Stopped listening on port 56608
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+h-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: staconsole.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: IJavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1627052042646	Marionette	INFO	Stopped listening on port 56719
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: staconsole.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: IJavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1627052043657	Marionette	INFO	Stopped listening on port 56859
+rrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1627052046966	Marionette	INFO	Stopped listening on port 57128
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1:57420
+1627047267443	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofiledLqe4d"
+1627047267713	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofiledLqe4d\\search.json.mozlz4", (void 0)))
+1627047269516	Marionette	INFO	Listening on port 57429
+1627047269623	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627047286222	Marionette	INFO	Stopped listening on port 57429
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627047365781	geckodriver	INFO	Listening on 127.0.0.1:57525
+1627047369190	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile3MI0SF"
+1627047369462	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofile3MI0SF\\search.json.mozlz4", (void 0)))
+1627047371188	Marionette	INFO	Listening on port 57533
+1627047371258	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627047378844	Marionette	INFO	Stopped listening on port 57533
+1627047491604	geckodriver	INFO	Listening on 127.0.0.1:57630
+1627047495020	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileMUK5HK"
+1627047495291	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileMUK5HK\\search.json.mozlz4", (void 0)))
+1627047497020	Marionette	INFO	Listening on port 57638
+1627047497097	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627047503588	Marionette	INFO	Stopped listening on port 57638
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627047617478	geckodriver	INFO	Listening on 127.0.0.1:57775
+1627047620902	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileo4rquZ"
+1627047621172	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileo4rquZ\\search.json.mozlz4", (void 0)))
+1627047622973	Marionette	INFO	Listening on port 57784
+1627047623065	Marionette	WARN	TLS certificate errors will be ignored for this session
+1627047638721	Marionette	INFO	Stopped listening on port 57784
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1627047834038	geckodriver	INFO	Listening on 127.0.0.1:57933
+1627047837455	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilevw9TIb"
+*** You are running in headless mode.
+1627047837731	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofilevw9TIb\\search.json.mozlz4", (void 0)))
+1627047838605	Marionette	INFO	Listening on port 57941
+1627047839021	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1:58200
+1627048388986	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileCkKAih"
+*** You are running in headless mode.
+1627048389269	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileCkKAih\\search.json.mozlz4", (void 0)))
+1627048390237	Marionette	INFO	Listening on port 58209
+1627048390542	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: services.settings: 
+  main/doh-config Signature failed  InvalidSignatureError: Invalid content signature (main/doh-config)
+console.error: services.settings: 
+  main/doh-config local data was corrupted
+console.warn: services.settings: main/doh-config Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/doh-providers Signature failed  InvalidSignatureError: Invalid content signature (main/doh-providers)
+console.error: services.settings: 
+  main/doh-providers local data was corrupted
+console.warn: services.settings: main/doh-providers Signature verified failed. Retry from scratch
+console.log: WebExtensions: reset-default-search: starting.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
