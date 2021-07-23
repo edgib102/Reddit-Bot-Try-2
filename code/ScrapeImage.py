@@ -1,12 +1,12 @@
+from PIL import Image
 from requests.api import options
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-import time, requests
+import time, requests, os
 
 
-
-def search_google(search_query):
-
+def search_google(search_query,maxImages):
+    print('scraping images from google')
     options = Options()
     options.headless = True    
 
@@ -17,6 +17,9 @@ def search_google(search_query):
     # open browser and begin search
     browser.get(search_url)
     elements = browser.find_elements_by_class_name('rg_i')
+
+    global imageList    
+    imageList = []
 
     count = 0
     for e in elements:
@@ -36,16 +39,20 @@ def search_google(search_query):
         # write image to file
         reponse = requests.get(images_url[count])
         if reponse.status_code == 200:
-            with open(f"Thumbnail\\Images\\search{count+1}.png","wb") as file:
+            imageList.append(f"Thumbnail\\search{count}.png")
+            with open(f"Thumbnail\\search{count}.png","wb") as file:
                 file.write(reponse.content)
 
         count += 1
 
         # Stop get and save after 5
-        if count == 1:
+        if count == maxImages:
             break
+    print('finished scraping images from google')
+    return imageList
 
-    return images_url
 
-items = search_google('dog png')
+
+if __name__ == '__main__':
+    items = search_google('dog png', 10)
 
