@@ -11,7 +11,7 @@ from binascii import a2b_base64
 def search_google(search_query,maxImages):
     print('scraping images from google')
     options = Options()
-    options.headless = False    
+    options.headless = True   
 
     browser = webdriver.Firefox(options=options,firefox_profile='C:/Users/edgib102/Documents/geckodriver-v0.29.1-win64')
     search_url = f"https://www.google.com/search?site=&tbm=isch&source=hp&biw=1873&bih=990&q={search_query}"

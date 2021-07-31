@@ -99,7 +99,10 @@ def create_thumbnail(title):
     height = (mainImg.height - googleImage.height) // 2
     mainImg.paste(frame,(0,0),frame)
     mainImg.paste(askredditLogo,(50,20),askredditLogo)
-    mainImg.paste(googleImage,(width,height), googleImage)
+    if transparent == False:
+        mainImg.paste(googleImage,(width,height), googleImage)
+    else:
+        mainImg.paste(googleImage,(width,height))
 
     mainImg.save(os.path.join(OUTPUT_PATH,'thumbnail.png'))
 

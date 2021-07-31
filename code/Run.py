@@ -36,12 +36,12 @@ def full():
 
     create_clip(amount,ttsNames,commentNames,videoName)
 
-    create_video(videoName,'TitleImage.png',title)
+    create_video(videoName,'thumbnail.png',title)
 
     print('finished cycle at ' + time.ctime())
 
 i = 0
-addTime = 3
+addTime = 3000
 maxtime = 0
 while True:
     if i >= 10:
