@@ -1,36 +1,55 @@
-from Scrape import getPost
+from Scrape import getPost, reset_blacklist
 from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
 from Edit import create_clip
 from Upload import create_video
+import time
 
 videoName = 'Reddit Tts video.mp4'
 
 print('started')
 commentNames = []
 ttsNames = []
-title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
 
-print(title)
-create_tts_title(title,'TitleTtsAudio.mp3')
-construct_title_image(title,'TitleImage.png')
-print('created base title media')
+def full():
 
-for x in range(amount):
-    commentName = f'Image{x}.png'
-    ttsName = f'TtsAudio{x}.mp3'
-    construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
-    create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
+    title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
 
-    commentNames.append(commentName)
-    ttsNames.append(ttsName)
+    print(title)
+    create_tts_title(title,'TitleTtsAudio.mp3')
+    construct_title_image(title,'TitleImage.png')
+    print('created base title media')
 
-create_clip(amount,ttsNames,commentNames,videoName)
+    for x in range(amount):
+        commentName = f'Image{x}.png'
+        ttsName = f'TtsAudio{x}.mp3'
+        construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+        create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
-create_video(videoName,'TitleImage.png','test video title')
+        commentNames.append(commentName)
+        ttsNames.append(ttsName)
 
-print('finished cycle')
+    create_clip(amount,ttsNames,commentNames,videoName)
 
+    create_video(videoName,'TitleImage.png',title)
+
+    print('finished cycle at ' + time.ctime())
+
+i = 0
+addTime = 3
+maxtime = 0
+while True:
+    if i >= 10:
+        break
+    print('cycle' + str(i))
+    i += 1
+
+    full()
+    time.sleep(addTime)
+    maxtime += addTime
+    if maxtime == 259200: #if 3 days worth of seconds have passed reset blacklist
+        maxtime = 0
+        reset_blacklist()
 
 
 
