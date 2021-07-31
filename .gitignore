@@ -6,3 +6,4 @@
 *.mp4
 client_secret.json
 .driver
+.log
