@@ -1,14 +1,17 @@
 from PIL import Image
 from requests.api import options
+from requests.sessions import InvalidSchema
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import time, requests, os
-
+import base64
+from lxml import html
+from binascii import a2b_base64
 
 def search_google(search_query,maxImages):
     print('scraping images from google')
     options = Options()
-    options.headless = True    
+    options.headless = False    
 
     browser = webdriver.Firefox(options=options,firefox_profile='C:/Users/edgib102/Documents/geckodriver-v0.29.1-win64')
     search_url = f"https://www.google.com/search?site=&tbm=isch&source=hp&biw=1873&bih=990&q={search_query}"
@@ -37,18 +40,41 @@ def search_google(search_query,maxImages):
         images_url.append(big_img.get_attribute("src"))
 
         # write image to file
-        reponse = requests.get(images_url[count])
-        if reponse.status_code == 200:
-            imageList.append(f"Thumbnail\\search{count}.png")
-            with open(f"Thumbnail\\search{count}.png","wb") as file:
-                file.write(reponse.content)
+        # try:
 
+        try:
+            response = requests.get(images_url[count])
+        except InvalidSchema:
+            print(f'fucky data')
+            ext = images_url[count].partition("data:image/")[2].split(';')[1]
+            ext = ext.partition('base64,')[2]
+
+            binary_data = a2b_base64(ext)
+            fd = open(f"Thumbnail\\search{count}.png", 'wb')
+            fd.write(binary_data)
+            fd.close()
+
+            print(count)
+            count+=1
+            if count >= maxImages:
+                break
+            continue
+
+
+
+        if response.status_code == 200:
+            imageList.append(f"Thumbnail\\search{count}.png")
+
+            with open(f"Thumbnail\\search{count}.png","wb") as file:
+                file.write(response.content)
+        print(count)
         count += 1
 
         # Stop get and save after 5
-        if count == maxImages:
+        if count >= maxImages:
             break
     print('finished scraping images from google')
+    # browser.close()
     return imageList
 
 
