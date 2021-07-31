@@ -36,7 +36,7 @@ def full():
     print('finished cycle at ' + time.ctime())
 
 i = 0
-time = 3000
+addTime = 3
 maxtime = 0
 while True:
     if i >= 10:
@@ -45,8 +45,8 @@ while True:
     i += 1
 
     full()
-    time.sleep(time)
-    maxtime += time
+    time.sleep(addTime)
+    maxtime += addTime
     if maxtime == 259200: #if 3 days worth of seconds have passed reset blacklist
         maxtime = 0
         reset_blacklist()
