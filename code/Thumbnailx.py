@@ -1,5 +1,4 @@
 from nltk.util import pr
-import textblob
 from ScrapeImage import search_google
 from PIL import Image
 from PIL import ImageFont

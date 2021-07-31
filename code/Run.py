@@ -1,8 +1,10 @@
+from nltk.util import pr
 from Scrape import getPost, reset_blacklist
 from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
 from Edit import create_clip
 from Upload import create_video
+from Thumbnailx import create_thumbnail
 import time
 
 videoName = 'Reddit Tts video.mp4'
@@ -19,6 +21,9 @@ def full():
     create_tts_title(title,'TitleTtsAudio.mp3')
     construct_title_image(title,'TitleImage.png')
     print('created base title media')
+
+    create_thumbnail(title)
+    print('created thumbnail')
 
     for x in range(amount):
         commentName = f'Image{x}.png'

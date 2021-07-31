@@ -1,5 +1,5 @@
 .redditvenv
-.__pycache__
+/code/__pycache__
 .vscode
 *.mp3
 *.png
@@ -7,3 +7,5 @@
 client_secret.json
 .driver
 .log
+!Thumbnail/frame.png
+!Thumbnail/askreddit.png
