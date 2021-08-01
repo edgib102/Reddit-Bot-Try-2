@@ -13,4 +13,5 @@
 
 - List of terms and categories to filter out to improve comment quality
 - gui
--
+- upvotes next to name
+- comment culling basted on length
