@@ -1,7 +1,9 @@
 from PIL import Image
+from nltk.util import pr
 from requests.api import options
 from requests.sessions import InvalidSchema
 from selenium import webdriver
+import selenium
 from selenium.webdriver.firefox.options import Options
 import time, requests, os
 import base64
@@ -11,7 +13,7 @@ from binascii import a2b_base64
 def search_google(search_query,maxImages):
     print('scraping images from google')
     options = Options()
-    options.headless = True   
+    options.headless = False   
 
     browser = webdriver.Firefox(options=options,firefox_profile='C:/Users/edgib102/Documents/geckodriver-v0.29.1-win64')
     search_url = f"https://www.google.com/search?site=&tbm=isch&source=hp&biw=1873&bih=990&q={search_query}"
@@ -19,6 +21,13 @@ def search_google(search_query,maxImages):
 
     # open browser and begin search
     browser.get(search_url)
+
+    try:
+        browser.find_element_by_class_name('hIOe2').click()
+        browser.f
+    except:
+        print('no tranparency button')   
+
     elements = browser.find_elements_by_class_name('rg_i')
 
     global imageList    

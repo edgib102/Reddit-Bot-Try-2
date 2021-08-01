@@ -71,10 +71,6 @@ def getPost():
                 turn_to_json(postList)
                 return title, commentList, authorList, amount
 
-            # except:
-            #     print( + 'limit occured (take with grain of salt)')
-            #     turn_to_json(postList)
-            #     return title, commentList, authorList, amount
 
     amount = len(commentList)
     turn_to_json(postList)
@@ -88,9 +84,6 @@ def reset_blacklist():
     jsonFile.write(jsonString)
     jsonFile.close()
     
-
-
-
 
 if __name__ == '__main__':
     # getPost()

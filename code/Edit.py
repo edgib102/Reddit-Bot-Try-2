@@ -32,6 +32,8 @@ def create_clip(amount,audioNames,imageNames,outputName):
         tmp_mp4.audio = tmp_mp3
         clips.append(tmp_mp4)
 
+        
+
     stacked_vid = concatenate(clips, method='compose')
     stacked_vid = stacked_vid.resize((width,height))
 

@@ -45,9 +45,8 @@ def get_words(title):
         wordlist += noun + ' '
     print(wordlist)
     blob = TextBlob(wordlist)
+    # if wor
     return blob.words
-
-
 
 def create_thumbnail(title):
     font = ImageFont.truetype(fontPath,fontSize)
@@ -57,8 +56,10 @@ def create_thumbnail(title):
     global imageList
 
     terms = get_words(title)
-
-    imageList = search_google(terms[int(len(terms)/2)] +' png',10)
+    if len(terms):
+        imageList = search_google(terms[int(len(terms)/2)] +' png', 10)
+    else:
+        imageList = search_google(title, 10)
     # imageList = ["Thumbnail\\search1.png"]
     transparent = False
     for googleScrapedImage in imageList:
@@ -81,9 +82,10 @@ def create_thumbnail(title):
             googleImage = Image.open(imageList[0])
             delete_images(imageList[0])
 
+    mainImg = Image.new('RGB', size,(coloe,coloe,coloe))
     askredditLogo = Image.open(os.path.join(OUTPUT_PATH,'askreddit.png'))
     frame = Image.open(os.path.join(OUTPUT_PATH,'frame.png'))
-    mainImg = Image.new('RGB', size,(coloe,coloe,coloe))
+ 
     
     
 
@@ -99,7 +101,7 @@ def create_thumbnail(title):
     height = (mainImg.height - googleImage.height) // 2
     mainImg.paste(frame,(0,0),frame)
     mainImg.paste(askredditLogo,(50,20),askredditLogo)
-    if transparent == False:
+    if transparent == True:
         mainImg.paste(googleImage,(width,height), googleImage)
     else:
         mainImg.paste(googleImage,(width,height))
@@ -108,6 +110,6 @@ def create_thumbnail(title):
 
 
 if __name__ == '__main__':
-    create_thumbnail('Redditors, how much cum did your father guzzle after raping you in the hallway?')
-    # get_words('Redditors, how much cum did your father guzzle after raping you in the hallway?')
+    create_thumbnail('People who stay awake late in the middle of the night, what are you doing?')
+    # get_words('People who stay awake late in the middle of the night, what are you doing?')
 

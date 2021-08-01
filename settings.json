@@ -8,7 +8,7 @@
     "reddit_details":
     {
         "subreddit":"askreddit",
-        "max_comments": 1
+        "max_comments": 25
     }
 
 }

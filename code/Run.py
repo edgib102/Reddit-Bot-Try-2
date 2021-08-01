@@ -36,7 +36,7 @@ def full():
 
     create_clip(amount,ttsNames,commentNames,videoName)
 
-    create_video(videoName,'thumbnail.png',title)
+    # create_video(videoName,'thumbnail.png',title)
 
     print('finished cycle at ' + time.ctime())
 

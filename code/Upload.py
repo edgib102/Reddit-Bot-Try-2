@@ -20,7 +20,7 @@ def create_video(videoFileName,thumbnailName,videoTitle):
         'snippet':{
             'categoryId':24, #possible error
             'title': videoTitle,
-            'description': f'{videoTitle}\n\nThis is the first pulbic video test',
+            'description': f'{videoTitle}\n\nDoubters should perish',
             'tags': ['reddit','askreddit']
         },
         'status':{
