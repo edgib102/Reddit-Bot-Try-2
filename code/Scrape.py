@@ -86,5 +86,5 @@ def reset_blacklist():
     
 
 if __name__ == '__main__':
-    # getPost()
+    getPost()
     reset_blacklist()

@@ -3,10 +3,8 @@ from nltk.util import pr
 from requests.api import options
 from requests.sessions import InvalidSchema
 from selenium import webdriver
-import selenium
 from selenium.webdriver.firefox.options import Options
-import time, requests, os
-import base64
+import time, requests
 from lxml import html
 from binascii import a2b_base64
 

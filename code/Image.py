@@ -2,6 +2,7 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
 import os.path
+import json
 
 #base text settings. Might change it into a json file if i can be fucked
 FONT_PATH ='Fonts\\'
@@ -14,6 +15,13 @@ authorfontsize = 70
 titleFontSize = 100
 colorText = "white"
 authorcolorText = "white"
+
+with open('settings.json') as x:
+    settings = json.load(x)
+
+
+size = settings['video_details']['resolution']
+
 
 def split_string(text, maxWords):
     words = text.split()
@@ -46,7 +54,7 @@ def construct_image(text,author,name):
     #gets filepath where the image ends up and the name of the image
     filepath = os.path.join(IMAGE_PATH, name)
     #creates a blank transparent image
-    img = Image.new('RGBA',(1920,1080), (0,0,0,0))
+    img = Image.new('RGBA',size, (0,0,0,0))
     #opens up the image for editing
     d = ImageDraw.Draw(img)
     #sets fonts and font sizes
@@ -58,7 +66,7 @@ def construct_image(text,author,name):
 
     for line in split_string(text, 10):
         text_dimensions = get_text_size(line, commentFont) #gets text size
-        x = (1920 - text_dimensions[0]) / 2 #gets the center of the screen to place text to
+        x = (size[0] - text_dimensions[0]) / 2 #gets the center of the screen to place text to
 
         d.text((x, y),line,font=commentFont,fill=colorText) #draws text
         y += fontsize
@@ -71,14 +79,14 @@ def construct_image(text,author,name):
         
 def construct_title_image(text,name): #esentaly does the same thing as above exept with diff settings
     filepath = os.path.join(IMAGE_PATH, name)
-    img = Image.new('RGBA',(1920,1080), (0,0,0,0))
+    img = Image.new('RGBA',size, (0,0,0,0))
     d = ImageDraw.Draw(img)
     commentFont = ImageFont.truetype(font, titleFontSize)
     y = 250
 
     for line in split_string(text, 5):
         text_dimensions = get_text_size(line, commentFont)
-        x = (1920 - text_dimensions[0]) / 2
+        x = (size[0] - text_dimensions[0]) / 2
 
         d.text((x, y),line,font=commentFont,fill=colorText)
         y += titleFontSize+10
@@ -88,6 +96,7 @@ def construct_title_image(text,name): #esentaly does the same thing as above exe
     print('made image')
 
     return()
+
 
 if __name__ == '__main__':
     construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')

@@ -4,10 +4,11 @@
 ## What it does
 1. Gets post from reddit and puts set number of comments into a list
 2. Converts each comment into a transparent image 
-3. Turns text in tts audio
+3. Turns text into tts audio
 4. Combines the 2 into one big clip
 5. Adds background stuff like music and a title
-6. Uploads to youtube
+6. Creates a thumbnail form scraped images off google
+7. Uploads to youtube
  
 ## Future wants:
 

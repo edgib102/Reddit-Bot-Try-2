@@ -1,16 +1,19 @@
-import datetime
-from logging import exception
-from wsgiref.simple_server import server_version
-
-import googleapiclient
+# import datetime
+# from logging import exception
+# from wsgiref.simple_server import server_version
 from Google import Create_Service
 from googleapiclient.http import MediaFileUpload
-import os.path
+import json
 
 CLIENT_SECRET_FILE = 'client_secret.json'
 API_NAME = 'youtube'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+
+with open('settings.json') as x:
+    settings = json.load(x)
+
+uploadDetails = settings['upload_details']
 
 service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 def create_video(videoFileName,thumbnailName,videoTitle):
@@ -18,13 +21,13 @@ def create_video(videoFileName,thumbnailName,videoTitle):
     # upload_date_time = datetime.datetime(2021, 7, 23, 3, 30, 0).isoformat() + '.000Z'
     request_body = {
         'snippet':{
-            'categoryId':24, #possible error
+            'categoryId':uploadDetails['category'], #possible error
             'title': videoTitle,
-            'description': f'{videoTitle}\n\nDoubters should perish',
-            'tags': ['reddit','askreddit']
+            'description': f'{videoTitle}\n\n' + uploadDetails['description'],
+            'tags': uploadDetails['tags']
         },
         'status':{
-            'privacyStatus': 'private',
+            'privacyStatus': uploadDetails['privacy'],
             # 'publishAt': upload_date_time,
             'selfDeclareMadeForKids': False
             

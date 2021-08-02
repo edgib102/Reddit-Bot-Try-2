@@ -7,8 +7,21 @@
     },
     "reddit_details":
     {
-        "subreddit":"askreddit",
+        "subreddit": "askreddit",
         "max_comments": 25
+    },
+    "video_details":
+    {
+        "resolution": [1920,1080],
+        "fps": 24
+    },
+    "upload_details":
+    {
+        "description":"gaming test",
+        "catergory": 24,
+        "tags": ["reddit", "askreddit"],
+        "privacy": "private"
     }
+    
 
 }
