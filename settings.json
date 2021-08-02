@@ -15,6 +15,10 @@
         "resolution": [1920,1080],
         "fps": 5
     },
+    "text_details":
+    {
+        "max_chars": 100
+    },
     "upload_details":
     {
         "description":"gaming test",
