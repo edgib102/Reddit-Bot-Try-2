@@ -5,6 +5,7 @@ from tts import create_tts, create_tts_title
 from Edit import create_clip
 from Upload import create_video
 from Thumbnailx import create_thumbnail
+from ProcessText import process_text
 import time
 
 videoName = 'Reddit Tts video.mp4'
@@ -16,6 +17,7 @@ ttsNames = []
 def full():
 
     title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
+
 
     print(title)
     create_tts_title(title,'TitleTtsAudio.mp3')
