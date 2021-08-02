@@ -44,13 +44,12 @@ def create_video(videoFileName,thumbnailName,videoTitle):
         media_body=mediaFile
     ).execute()
 
-    print('ran into an error')
-
+    print('uploading video')
     service.thumbnails().set(
         videoId=response_upload.get('id'),
         media_body=MediaFileUpload('Thumbnail\\'+ thumbnailName)
     ).execute()
-    print('uploading video')
+    print('finished uploading video')
 
 if __name__ == '__main__':
-    create_video('Reddit Tts Video','thumbnail','Test video')
+    create_video('Reddit Tts Video.mp4','thumbnail.png','Test video')

@@ -57,7 +57,7 @@ def create_clip(amount,audioNames,imageNames,outputName):
     final_vid = final_vid.resize(width=size[0],height=size[1])
     final_vid.write_videofile(os.path.join(OUTPUT_PATH,outputName),fps=fps)
 
-    settings.close()
+    
 
 
 if __name__ == '__main__':

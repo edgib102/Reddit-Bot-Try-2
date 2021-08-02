@@ -2997,7 +2997,8 @@ console.warn: services.settings: main/doh-config Signature verified failed. Retr
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1627873883150	geckodriver	INFO	Listening on 127.0.0.1:63610
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1:63610
 1627873886515	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileL8LKOd"
 *** You are running in headless mode.
 1627873886926	Marionette	INFO	Marionette enabled
@@ -3018,3 +3019,11 @@ console.warn: services.settings: main/doh-config Signature verified failed. Retr
 console.log: WebExtensions: reset-default-search: starting.
 console.log: WebExtensions: reset-default-search: No addons in our list are installed.
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1627879166907	geckodriver	INFO	Listening on 127.0.0.1:64867
+1627879170274	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileSyv7M4"
+*** You are running in headless mode.
+1627879170577	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\edgib102\\AppData\\Local\\Temp\\rust_mozprofileSyv7M4\\search.json.mozlz4", (void 0)))
+1627879171485	Marionette	INFO	Listening on port 64876
+1627879171840	Marionette	WARN	TLS certificate errors will be ignored for this session
