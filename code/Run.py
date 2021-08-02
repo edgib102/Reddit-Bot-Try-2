@@ -1,4 +1,3 @@
-from nltk.util import pr
 from Scrape import getPost, reset_blacklist
 from Image import construct_image, construct_title_image
 from tts import create_tts, create_tts_title
@@ -6,19 +5,34 @@ from Edit import create_clip
 from Upload import create_video
 from Thumbnailx import create_thumbnail
 from ProcessText import process_text
+
+import json
+from datetime import datetime, timedelta
 import time
 
-videoName = 'Reddit Tts video.mp4'
+from PIL.Image import new
+
+with open('settings.json') as f:
+    settings = json.load(f)
+
+videoAmount = settings['general_details']['video_amount']
+bufferLength = settings['general_details']['buffer_length']
+videoFileName = settings['video_details']['filename']
 
 print('started')
 commentNames = []
 ttsNames = []
 
+startDatetime = datetime.now()
+print('Started program at: ' + str(startDatetime))
+
 def full():
 
-    title, commentList, authorlist, amount= getPost() #gets various varibles from Scrape.py
+    title, commentList, authorlist = getPost() #gets various varibles from Scrape.py
 
-
+    commentList = process_text(commentList)
+    amount = len(commentList)
+    
     print(title)
     create_tts_title(title,'TitleTtsAudio.mp3')
     construct_title_image(title,'TitleImage.png')
@@ -36,22 +50,30 @@ def full():
         commentNames.append(commentName)
         ttsNames.append(ttsName)
 
-    create_clip(amount,ttsNames,commentNames,videoName)
+    create_clip(amount,ttsNames,commentNames,videoFileName)
 
-    create_video(videoName,'thumbnail.png',title)
+    create_video(videoFileName,'thumbnail.png',title)
 
-    print('finished cycle at ' + time.ctime())
+    print('finished cycle at ' + str(datetime.now()))
 
 i = 0
-addTime = 3000
+
+addTime = (24 / videoAmount) * 60
+timeChange = timedelta(seconds=addTime)
+newTime = startDatetime + timedelta(days=bufferLength)
+
 maxtime = 0
+
 while True:
     if i >= 10:
         break
     print('cycle' + str(i))
     i += 1
 
-    full()
+    newTime = newTime + timeChange
+    print(str(newTime))
+
+    # full()
     time.sleep(addTime)
     maxtime += addTime
     if maxtime == 259200: #if 3 days worth of seconds have passed reset blacklist

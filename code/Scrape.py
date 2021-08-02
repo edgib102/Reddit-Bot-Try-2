@@ -6,8 +6,6 @@ import re
 
 maxComments = 0
 
-with open('swear_words.json') as x:
-    swear_json = json.load(x)
 
 #getting json file and opening it
 with open('settings.json') as f:
@@ -67,14 +65,11 @@ def getPost():
             i += 1
 
             if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
-                amount = len(commentList)
                 turn_to_json(postList)
-                return title, commentList, authorList, amount
+                return title, commentList, authorList
 
-
-    amount = len(commentList)
     turn_to_json(postList)
-    return title, commentList, authorList, amount
+    return title, commentList, authorList
 
 def reset_blacklist():
     postList = []

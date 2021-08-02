@@ -13,7 +13,8 @@
     "video_details":
     {
         "resolution": [1920,1080],
-        "fps": 5
+        "fps": 5,
+        "filename": "Reddit Tts video.mp4"
     },
     "text_details":
     {
@@ -25,7 +26,10 @@
         "category": 24,
         "tags": ["reddit", "askreddit"],
         "privacy": "private"
+    },
+    "general_details":
+    {
+        "video_amount": 1000,
+        "buffer_length": 3               
     }
-    
-
 }

@@ -26,7 +26,6 @@ def process_text(baseTextList):
         censored_text = profanity.censor(text)
         print(censored_text)
     return textList
-
     
 if __name__ == '__main__':
     x = process_text(['edit:car if','bitch you fuck'])

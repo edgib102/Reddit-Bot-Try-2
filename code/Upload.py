@@ -1,4 +1,4 @@
-# import datetime
+from datetime import datetime
 # from logging import exception
 # from wsgiref.simple_server import server_version
 from Google import Create_Service
@@ -16,9 +16,9 @@ with open('settings.json') as x:
 uploadDetails = settings['upload_details']
 
 service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
-def create_video(videoFileName,thumbnailName,videoTitle):
+def create_video(videoFileName,thumbnailName,videoTitle,uploadDate):
 
-    # upload_date_time = datetime.datetime(2021, 7, 23, 3, 30, 0).isoformat() + '.000Z'
+    upload_date_time = datetime(2021, 7, 23, 3, 30, 0).isoformat() + '.000Z'
     request_body = {
         'snippet':{
             'categoryId':uploadDetails['category'], #possible error
@@ -28,7 +28,7 @@ def create_video(videoFileName,thumbnailName,videoTitle):
         },
         'status':{
             'privacyStatus': uploadDetails['privacy'],
-            # 'publishAt': upload_date_time,
+            'publishAt': upload_date_time,
             'selfDeclareMadeForKids': False
             
         },
