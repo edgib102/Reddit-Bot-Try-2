@@ -13,6 +13,7 @@ with open('settings.json') as f:
 
 #authentication
 auth_data = data['auth']
+
 reddit = praw.Reddit(
     client_id=auth_data['client_id'],
     client_secret=auth_data['client_secret'],
@@ -31,6 +32,7 @@ def turn_to_json(submissions):
 def getPost():
     commentList = []
     authorList = []
+    upvoteList = []
 
     with open('prev_submissions.json', 'r') as x:
         global postList
@@ -41,6 +43,7 @@ def getPost():
     i=0
     reddit_details = data["reddit_details"]
     sub = reddit.subreddit(reddit_details["subreddit"])
+    minUpvotes = reddit_details['min_upvotes']
 
     for submission in sub.hot(limit=None): #Gets submission/s from the set subreddit and loops per number of them
         i=0
@@ -62,6 +65,7 @@ def getPost():
                 continue
             commentList.append(comment.body)
             authorList.append(comment.author.name)
+            upvoteList.append(comment.score)
             i += 1
 
             if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
@@ -69,7 +73,12 @@ def getPost():
                 return title, commentList, authorList
 
     turn_to_json(postList)
-    return title, commentList, authorList
+
+    u = upvoteList.sort()
+    if u[-1] <= minUpvotes:
+        upvoteList = []
+
+    return title, commentList, authorList, upvoteList
 
 def reset_blacklist():
     postList = []

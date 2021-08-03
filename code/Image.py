@@ -1,17 +1,20 @@
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
+from PIL import Image
 import os.path
 import json
 
 #base text settings. Might change it into a json file if i can be fucked
 FONT_PATH ='Fonts\\'
 IMAGE_PATH='Video\\Image Bin'
+EFFECT_PATH = 'Video\\Effects'
 font = os.path.join(FONT_PATH,"Roboto-Bold.ttf")
 titleFont = os.path.join(FONT_PATH,"Roboto-Bold.ttf")
 
 fontsize = 55
 authorfontsize = 70
+authorfontsize2 = 55
 titleFontSize = 100
 colorText = "white"
 authorcolorText = "white"
@@ -21,7 +24,7 @@ with open('settings.json') as x:
 
 
 size = settings['video_details']['resolution']
-
+minUpvotes = settings['reddit_details']['min_upvotes']
 
 def split_string(text, maxWords):
     words = text.split()
@@ -50,7 +53,7 @@ def get_text_size(text_string, font):
     text_height = font.getmask(text_string).getbbox()[3] + descent
     return (text_width, text_height)
         
-def construct_image(text,author,name):
+def construct_image(text,author,name,upvotes=0):
     #gets filepath where the image ends up and the name of the image
     filepath = os.path.join(IMAGE_PATH, name)
     #creates a blank transparent image
@@ -60,8 +63,31 @@ def construct_image(text,author,name):
     #sets fonts and font sizes
     commentFont = ImageFont.truetype(font, fontsize)
     authorFont = ImageFont.truetype(font, authorfontsize)
+    authorFont2 = ImageFont.truetype(font, authorfontsize2)
     #draws text onto the blank image we created earlier
-    d.text((100,50),'u/'+author,font=authorFont,fill=authorcolorText) #Draws author text
+
+    authx = 100
+    authy = 50
+
+    d.text((authx,authy),f'u/{author}',font=authorFont,fill=authorcolorText) #Draws author text • {upvotes} upvotes
+
+
+    if upvotes >= 1:
+        text_dimensions = get_text_size(f'u/{author}',authorFont)
+        d.text((text_dimensions[0] + authx,authy+10),f' • {upvotes}', font=authorFont2)
+
+        with Image.open(os.path.join(EFFECT_PATH,'Upvote arrow.png')) as im: #pastes arrow
+            text_dimensions2 = get_text_size(f' • {upvotes}',authorFont2)
+            img.paste(im,(text_dimensions[0] + text_dimensions2[0] + authx + 10,72),im)
+
+        with Image.open(os.path.join(EFFECT_PATH,'bar.png')) as im: #pastes seperation bar
+            img.paste(im,(0,0),im)
+        
+        with Image.open(os.path.join(EFFECT_PATH,'frame2.png')) as im: #pastes frame
+            img.paste(im,(0,0),im)
+
+
+
     y = 250
 
     for line in split_string(text, 10):
@@ -72,6 +98,7 @@ def construct_image(text,author,name):
         y += fontsize
 
     #saves the image at the set filepath
+    # img.show()
     img.save(filepath)
     print('made image')
 
@@ -92,12 +119,13 @@ def construct_title_image(text,name): #esentaly does the same thing as above exe
         y += titleFontSize+10
 
     #saves the image at the set filepath
-    img.save(filepath)
+    # img.show()
+    # img.save(filepath)
     print('made image')
 
     return()
 
 
 if __name__ == '__main__':
-    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy','test.png')
+    construct_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','gamerboy08','test.png',305)
     construct_title_image('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor','TitleTest.png')

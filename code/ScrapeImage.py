@@ -81,7 +81,7 @@ def search_google(search_query,maxImages):
         if count >= maxImages:
             break
     print('finished scraping images from google')
-    # browser.close()
+    browser.close()
     return imageList
 
 

@@ -1,7 +1,7 @@
 import pyttsx3
 import os.path
 engine = pyttsx3.init()
-engine.setProperty('rate',130)
+engine.setProperty('rate',135)
 baseFilepath = 'Video\\Tts'
 
 def create_tts(text, name): #Gets text and name from run.py and creates a .mp4 file at a set folder

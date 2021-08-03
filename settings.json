@@ -8,7 +8,8 @@
     "reddit_details":
     {
         "subreddit": "askreddit",
-        "max_comments": 2
+        "max_comments": 2,
+        "min_upvotes": 300
     },
     "video_details":
     {
@@ -18,7 +19,7 @@
     },
     "text_details":
     {
-        "max_chars": 100
+        "max_chars": 400
     },
     "upload_details":
     {
@@ -29,7 +30,7 @@
     },
     "general_details":
     {
-        "video_amount": 1000,
+        "video_amount": 4,
         "buffer_length": 3               
     }
 }

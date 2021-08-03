@@ -18,6 +18,7 @@ with open('settings.json') as f:
 videoAmount = settings['general_details']['video_amount']
 bufferLength = settings['general_details']['buffer_length']
 videoFileName = settings['video_details']['filename']
+minUpvotes = settings['reddit_details']['min_upvotes']
 
 print('started')
 commentNames = []
@@ -28,7 +29,10 @@ print('Started program at: ' + str(startDatetime))
 
 def full():
 
-    title, commentList, authorlist = getPost() #gets various varibles from Scrape.py
+    title, commentList, authorlist, upvoteList = getPost() #gets various varibles from Scrape.py
+
+    if upvoteList.sort()[-1] <= minUpvotes:
+        upvoteList
 
     commentList = process_text(commentList)
     amount = len(commentList)
@@ -44,7 +48,11 @@ def full():
     for x in range(amount):
         commentName = f'Image{x}.png'
         ttsName = f'TtsAudio{x}.mp3'
-        construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+
+        if upvoteList.sort()[-1] <= minUpvotes:
+            construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
+        else:
+            construct_image(commentList[x],authorlist[x],commentName,upvoteList[x])
         create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
         commentNames.append(commentName)
@@ -52,7 +60,7 @@ def full():
 
     create_clip(amount,ttsNames,commentNames,videoFileName)
 
-    create_video(videoFileName,'thumbnail.png',title)
+    create_video(videoFileName,'thumbnail.png',title,newTime)
 
     print('finished cycle at ' + str(datetime.now()))
 
@@ -71,9 +79,9 @@ while True:
     i += 1
 
     newTime = newTime + timeChange
-    print(str(newTime))
-
-    # full()
+    newTime = newTime.replace(microsecond=0)
+    full()
+    
     time.sleep(addTime)
     maxtime += addTime
     if maxtime == 259200: #if 3 days worth of seconds have passed reset blacklist

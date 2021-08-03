@@ -18,7 +18,8 @@ uploadDetails = settings['upload_details']
 service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 def create_video(videoFileName,thumbnailName,videoTitle,uploadDate):
 
-    upload_date_time = datetime(2021, 7, 23, 3, 30, 0).isoformat() + '.000Z'
+    print()
+    upload_date_time = uploadDate.isoformat() + '.000Z'
     request_body = {
         'snippet':{
             'categoryId':uploadDetails['category'], #possible error
