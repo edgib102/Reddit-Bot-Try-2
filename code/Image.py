@@ -2,6 +2,7 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
 from PIL import Image
+from PIL import ImageFilter
 import os.path
 import json
 
@@ -25,6 +26,16 @@ with open('settings.json') as x:
 
 size = settings['video_details']['resolution']
 minUpvotes = settings['reddit_details']['min_upvotes']
+
+offset = (5,5)
+dropshadowImg = Image.new('RGBA',size, (0,0,0,0))
+
+def create_dropshadow(text,textFont,pos):
+    d = ImageDraw.Draw(dropshadowImg)
+
+    d.text((pos[0] + offset[0],pos[1] + offset[1]),text,font=textFont,fill='black')
+    # dropshadowImg_blur = dropshadowImg.filter(ImageFilter.GaussianBlur(radius=2))
+    return dropshadowImg
 
 def split_string(text, maxWords):
     words = text.split()
@@ -69,16 +80,23 @@ def construct_image(text,author,name,upvotes=0):
     authx = 100
     authy = 50
 
-    d.text((authx,authy),f'u/{author}',font=authorFont,fill=authorcolorText) #Draws author text • {upvotes} upvotes
+    create_dropshadow(f'u/{author}',authorFont,(authx,authy))
+    d.text((authx,authy),f'u/{author}',font=authorFont,fill=authorcolorText) #Draws author text
 
 
     if upvotes >= 1:
         text_dimensions = get_text_size(f'u/{author}',authorFont)
-        d.text((text_dimensions[0] + authx,authy+10),f' • {upvotes}', font=authorFont2)
+        dropshadowImg = create_dropshadow(f' • {upvotes}',authorFont2,(text_dimensions[0] + authx,authy+10))
+        d.text((text_dimensions[0] + authx,authy+10),f' • {upvotes}', font=authorFont2) # draws upvote text
 
         with Image.open(os.path.join(EFFECT_PATH,'Upvote arrow.png')) as im: #pastes arrow
             text_dimensions2 = get_text_size(f' • {upvotes}',authorFont2)
-            img.paste(im,(text_dimensions[0] + text_dimensions2[0] + authx + 10,72),im)
+            img.paste(im,(text_dimensions[0] + text_dimensions2[0] + authx + 10,72),im)            
+
+
+        with Image.open(os.path.join(EFFECT_PATH,'Upvote arrow dr.png')) as im: #pastes dropshadow arrow
+
+            dropshadowImg.paste(im,(text_dimensions[0] + text_dimensions2[0] + authx + 10 + offset[0],72 + offset[1]),im)
 
         with Image.open(os.path.join(EFFECT_PATH,'bar.png')) as im: #pastes seperation bar
             img.paste(im,(0,0),im)
@@ -86,20 +104,27 @@ def construct_image(text,author,name,upvotes=0):
         with Image.open(os.path.join(EFFECT_PATH,'frame2.png')) as im: #pastes frame
             img.paste(im,(0,0),im)
 
-
-
     y = 250
 
     for line in split_string(text, 10):
         text_dimensions = get_text_size(line, commentFont) #gets text size
         x = (size[0] - text_dimensions[0]) / 2 #gets the center of the screen to place text to
 
+        dropshadowImg = create_dropshadow(line,commentFont,(x,y))
         d.text((x, y),line,font=commentFont,fill=colorText) #draws text
         y += fontsize
 
+    dropshadowImg_blur = dropshadowImg.filter(ImageFilter.GaussianBlur(radius=5))
+
+    img.save(os.path.join(EFFECT_PATH,'baseImg.png'))
+    with Image.open(os.path.join(EFFECT_PATH,'baseImg.png')) as im:
+        dropshadowImg_blur.paste(im,(0,0),im)
+    
+    
+
     #saves the image at the set filepath
-    # img.show()
-    img.save(filepath)
+    dropshadowImg_blur.show()
+    dropshadowImg_blur.save(filepath)
     print('made image')
 
     return()
@@ -119,7 +144,7 @@ def construct_title_image(text,name): #esentaly does the same thing as above exe
         y += titleFontSize+10
 
     #saves the image at the set filepath
-    # img.show()
+    # dropshadowImg.show()
     # img.save(filepath)
     print('made image')
 
