@@ -31,9 +31,6 @@ def full():
 
     title, commentList, authorlist, upvoteList = getPost() #gets various varibles from Scrape.py
 
-    if upvoteList.sort()[-1] <= minUpvotes:
-        upvoteList
-
     commentList = process_text(commentList)
     amount = len(commentList)
     
@@ -45,22 +42,29 @@ def full():
     create_thumbnail(title)
     print('created thumbnail')
 
+    u = upvoteList
+    print(upvoteList)
+    u.sort()
+    print(u) 
+
     for x in range(amount):
         commentName = f'Image{x}.png'
         ttsName = f'TtsAudio{x}.mp3'
 
-        if upvoteList.sort()[-1] <= minUpvotes:
+        if u[-1] <= minUpvotes:
+            print('Creating Image cards')
             construct_image(commentList[x],authorlist[x],commentName) #tells Image.py to make an image with set comment and author (x is what comment to send)
         else:
+            print('Min upvote threshold reached')
             construct_image(commentList[x],authorlist[x],commentName,upvoteList[x])
-        create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
+    #     create_tts(commentList[x],ttsName) #tells tts.py to make an mp3 based off the comment set
 
-        commentNames.append(commentName)
-        ttsNames.append(ttsName)
+    #     commentNames.append(commentName)
+    #     ttsNames.append(ttsName)
 
-    create_clip(amount,ttsNames,commentNames,videoFileName)
+    # create_clip(amount,ttsNames,commentNames,videoFileName)
 
-    create_video(videoFileName,'thumbnail.png',title,newTime)
+    # create_video(videoFileName,'thumbnail.png',title,newTime)
 
     print('finished cycle at ' + str(datetime.now()))
 

@@ -135,7 +135,6 @@ def create_thumbnail(title):
 
     print('created thumbnail')
     
-    mainImg.show()
     mainImg.save(os.path.join(OUTPUT_PATH,'thumbnail.png'))
 
 

@@ -8,13 +8,13 @@
     "reddit_details":
     {
         "subreddit": "askreddit",
-        "max_comments": 2,
+        "max_comments": 20,
         "min_upvotes": 300
     },
     "video_details":
     {
         "resolution": [1920,1080],
-        "fps": 5,
+        "fps": 24,
         "filename": "Reddit Tts video.mp4"
     },
     "text_details":
@@ -23,7 +23,7 @@
     },
     "upload_details":
     {
-        "description":"gaming test",
+        "description":"test 2",
         "category": 24,
         "tags": ["reddit", "askreddit"],
         "privacy": "private"

@@ -68,16 +68,11 @@ def getPost():
             upvoteList.append(comment.score)
             i += 1
 
-            if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information
+            if i == reddit_details['max_comments']: #if hit max comment amount it stops and returns information           
                 turn_to_json(postList)
-                return title, commentList, authorList
+                return title, commentList, authorList, upvoteList
 
     turn_to_json(postList)
-
-    u = upvoteList.sort()
-    if u[-1] <= minUpvotes:
-        upvoteList = []
-
     return title, commentList, authorList, upvoteList
 
 def reset_blacklist():
