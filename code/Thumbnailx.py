@@ -1,12 +1,17 @@
+import PIL
 from nltk.util import pr
 from ScrapeImage import search_google
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
+from PIL import ImageFilter
 import textwrap
 import os.path
 import os
 from textblob import TextBlob, blob
+import json
+
+
 
 OUTPUT_PATH = 'Thumbnail\\'
 FONT_PATH ='Fonts\\'
@@ -16,6 +21,11 @@ fontPath = os.path.join(FONT_PATH,"Roboto-Bold.ttf")
 
 size = (1920,1080)
 TextColor = 'White'
+
+with open('settings.json') as x:
+    settings = json.load(x)
+
+maxImageSearch = settings['general_details']['max_image_search']
 
 def delete_images(imgExclude):
      for image in imageList:
@@ -56,11 +66,14 @@ def create_thumbnail(title):
     global imageList
 
     terms = get_words(title)
-    if len(terms):
-        imageList = search_google(terms[int(len(terms)/2)] +' png', 10)
-    else:
-        imageList = search_google(title, 10)
-    # imageList = ["Thumbnail\\search1.png"]
+
+    # if len(terms):
+    #     imageList = search_google(terms[int(len(terms)/2)] +' png', maxImageSearch)
+    # else:
+    #     imageList = search_google(title, maxImageSearch)
+
+    imageList = ["Thumbnail\\search0.png"]
+
     transparent = False
     for googleScrapedImage in imageList:
         if has_transparency(googleScrapedImage) == True:
@@ -72,9 +85,6 @@ def create_thumbnail(title):
         else:
             transparent = False
         
-    # if transparent == False:
-    #     imageNonTransparent = search_google(terms[int(len(terms)/2)],1,True)
-    #     googleImage = Image.open(imageNonTransparent)
     if transparent == False:
         if len(imageList) == 0:
             googleImage = Image.new('RGBA',size,(0,0,0,0))
@@ -86,30 +96,51 @@ def create_thumbnail(title):
     askredditLogo = Image.open(os.path.join(OUTPUT_PATH,'askreddit.png'))
     frame = Image.open(os.path.join(OUTPUT_PATH,'frame.png'))
  
-    
-    
-
     d = ImageDraw.Draw(mainImg)
-    d.text((margin_x,margin_y),textwrap.fill(title, width=17),fill=TextColor,font=font)    
-    
-    r = 1.5
     a = 1.1
-    googleImage = googleImage.resize((int(googleImage.width*r),int(googleImage.height*r)))
+    x = 750
+
+    googleImage.thumbnail([x,x],Image.ANTIALIAS) #resises image to a controllable size
+
     askredditLogo = askredditLogo.resize((int(askredditLogo.width*a),int(askredditLogo.height*a)))
 
     width = (mainImg.width - googleImage.width) - 80
     height = (mainImg.height - googleImage.height) // 2
+
+    with Image.open(os.path.join(OUTPUT_PATH,'mask.png')) as msk:
+        # maskComposite = Image.new('RGBA', size,(coloe,coloe,coloe,coloe))
+        
+        mainImg.paste(googleImage,(width,height),googleImage)
+        mainImg.paste(msk,(0,0),msk)
+    
+        mainImg.paste(googleImage,(width,height),googleImage)
+        mainImg.paste(msk,(0,0),msk)
+    
+        # mainImg.show()
+
     mainImg.paste(frame,(0,0),frame)
     mainImg.paste(askredditLogo,(50,20),askredditLogo)
-    if transparent == True:
-        mainImg.paste(googleImage,(width,height), googleImage)
-    else:
-        mainImg.paste(googleImage,(width,height))
 
+    textImg = Image.new('RGBA',size, (0,0,0,0)) 
+    dt = ImageDraw.Draw(textImg)
+    offset = (7,8)   
+    # text_dimensions = get_text_size(title,font)
+
+    dt.text((margin_x + offset[0],margin_y + offset[1]),textwrap.fill(title, width=17),fill='black',font=font)
+    textImg = textImg.filter(ImageFilter.GaussianBlur(radius=2))
+
+
+    mainImg.paste(textImg,(0,0),textImg)
+    d.text((margin_x,margin_y),textwrap.fill(title, width=17),fill=TextColor,font=font)
+
+    print('created thumbnail')
+    
+    mainImg.show()
     mainImg.save(os.path.join(OUTPUT_PATH,'thumbnail.png'))
 
 
 if __name__ == '__main__':
-    create_thumbnail('People who stay awake late in the middle of the night, what are you doing?')
+    create_thumbnail('Whats the most fucked up thing someone has ever said to you?')
     # get_words('People who stay awake late in the middle of the night, what are you doing?')
+
 

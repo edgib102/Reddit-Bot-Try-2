@@ -23,7 +23,6 @@ authorcolorText = "white"
 with open('settings.json') as x:
     settings = json.load(x)
 
-
 size = settings['video_details']['resolution']
 minUpvotes = settings['reddit_details']['min_upvotes']
 
@@ -117,11 +116,11 @@ def construct_image(text,author,name,upvotes=0):
     dropshadowImg_blur = dropshadowImg.filter(ImageFilter.GaussianBlur(radius=5))
 
     img.save(os.path.join(EFFECT_PATH,'baseImg.png'))
+
     with Image.open(os.path.join(EFFECT_PATH,'baseImg.png')) as im:
         dropshadowImg_blur.paste(im,(0,0),im)
     
     
-
     #saves the image at the set filepath
     dropshadowImg_blur.show()
     dropshadowImg_blur.save(filepath)
