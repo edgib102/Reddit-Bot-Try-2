@@ -1,5 +1,4 @@
 # Reddit to youtube bot
-### aka my personal money printer
 
 ## What it does
 1. Gets post from reddit and puts set number of comments into a list
